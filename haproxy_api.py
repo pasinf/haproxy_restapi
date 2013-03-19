@@ -1,22 +1,18 @@
 #!/usr/bin/python
-'''
-API for managing HA Proxy configurations
+# Copyright 2013 Prashanth Hari
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
-Capabilities -
-* Add Server
-* Delete Server
-* Disable Server
-* Enable Server
-
-
-Author : Prashanth Hari
-Email  : prashanth_hari@cable.comcast.com
-
-Revision History
-~~~~~~~~~~~~~~~
-Initial Release Date:03-19-2013
-
-'''
 
 from functools import wraps
 from flask import Flask, request, Response, jsonify
@@ -136,7 +132,7 @@ Post /addserver
 
 {
 "frontend": {
-        virtual_name: "XRE",
+        virtual_name: "VIRTUAL",
         virtual_ip: "60.60.60.60",
         virtual_port: "80"
         },
@@ -144,11 +140,11 @@ Post /addserver
     real_port: "8080",
     real_servers: [
         {
-            name: "xre_vm_1",
+            name: "rs_1",
             ip: "1.1.1.1"
             },
         {
-            name: "xre_vm_2",
+            name: "rs_2",
             ip: "2.2.2.2"
             }
         ]
@@ -217,14 +213,14 @@ Post /deleteServer
 :deleteServer - POST Format 
 
 {
-    "virtual_name": "XRE",
+    "virtual_name": "VIRTUAL",
     real_servers: [
         {
-            name: "xre_vm_1",
+            name: "rs_1",
             ip: "1.1.1.1"
             },
         {
-            name: "xre_vm_2",
+            name: "rs_2",
             ip: "2.2.2.2"
             }
         ] 
@@ -264,8 +260,8 @@ Post /setServerMaint
 :setServerMaint - POST Format
 
 {
-    virtual_name: "XRE",
-    real_servers: ["xre_vm_1", "xre_vm_2"]
+    virtual_name: "VIRTUAL",
+    real_servers: ["rs_1", "rs_2"]
 }
 
 '''
@@ -290,8 +286,8 @@ Post /unsetServerMaint
 :unsetServerMaint - POST Format
 
 {
-    virtual_name: "XRE",
-    real_servers: ["xre_vm_1", "xre_vm_2"]
+    virtual_name: "VIRTUAL",
+    real_servers: ["rs_1", "rs_2"]
 }
 
 '''
