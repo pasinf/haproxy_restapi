@@ -4,7 +4,9 @@ Overview
 HA Proxy is a software load balancer solution in Linux and provides the features as in Hardware Load Balancer.
 The application by default uses config files to manage the loadbalancer settings.
 
-We built a set of REST API to manage the load balancer configurations to be adaptable in the cloud. The application is currently tested only in Ubuntu. This can be made compatible with other distributions with minor changes.
+Built a set of REST API to manage the load balancer configurations which makes it easier to deploy in cloud. 
+
+The application is currently tested only in Ubuntu. This can be made compatible with other distributions with minor changes.
 
 
 Features
